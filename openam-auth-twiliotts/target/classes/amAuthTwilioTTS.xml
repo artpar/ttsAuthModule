@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER. Copyright (c) 
+	2011-2015 ForgeRock AS. The contents of this file are subject to the terms 
+	of the Common Development and Distribution License (the License). You may 
+	not use this file except in compliance with the License. You can obtain a 
+	copy of the License at legal/CDDLv1.0.txt. See the License for the specific 
+	language governing permission and limitations under the License. When distributing 
+	Covered Code, include this CDDL Header Notice in each file and include the 
+	License file at legal/CDDLv1.0.txt. If applicable, add the following below 
+	the CDDL Header, with the fields enclosed by brackets [] replaced by your 
+	own identifying information: "Portions Copyrighted [year] [name of copyright 
+	owner]" -->
+<!DOCTYPE ServicesConfiguration
+    PUBLIC "=//iPlanet//Service Management Services (SMS) 1.0 DTD//EN"
+    "jar://com/sun/identity/sm/sms.dtd">
+
+<ServicesConfiguration>
+	<Service name="iPlanetAMAuthTwilioTTSService" version="1.0">
+		<Schema serviceHierarchy="/DSAMEConfig/authentication/iPlanetAMAuthTwilioTTSService"
+			i18nFileName="amAuthTwilioTTS" revisionNumber="10"
+			i18nKey="twiliotts-service-description" resourceName="twiliotts">
+			<Organization>
+				<!-- Specify resourceName for a JSON-friendly property in the REST SMS -->
+				<AttributeSchema name="iplanet-am-auth-twiliotts-account-sid"
+					type="single" syntax="string" i18nKey="a530" resourceName="accountSid">
+					<DefaultValues>
+						<Value></Value>
+					</DefaultValues>
+				</AttributeSchema>
+				<AttributeSchema name="iplanet-am-auth-twiliotts-tokenid"
+					type="single" syntax="string" i18nKey="a531" resourceName="tokenId">
+					<DefaultValues>
+						<Value></Value>
+					</DefaultValues>
+				</AttributeSchema>
+				<AttributeSchema name="iplanet-am-auth-twiliotts-url"
+					type="single" syntax="string" i18nKey="a532" resourceName="controlurl">
+					<DefaultValues>
+						<Value></Value>
+					</DefaultValues>
+				</AttributeSchema>
+				<AttributeSchema name="iplanet-am-auth-twiliotts-from"
+					type="single" syntax="string" i18nKey="a533" resourceName="fromPhone">
+					<DefaultValues>
+						<Value></Value>
+					</DefaultValues>
+				</AttributeSchema>
+				<AttributeSchema name="iplanet-am-auth-twiliotts-auth-level"
+					resourceName="authLevel" type="single" syntax="number_range"
+					rangeStart="0" rangeEnd="2147483647" i18nKey="a500">
+					<DefaultValues>
+						<Value>1</Value>
+					</DefaultValues>
+				</AttributeSchema>
+				<AttributeSchema name="iplanet-am-auth-twiliotts-validity-duration"
+					type="single" syntax="number_range" rangeStart="1" rangeEnd="30"
+					i18nKey="a507" resourceName="otpValidityDuration">
+					<DefaultValues>
+						<Value>5</Value>
+					</DefaultValues>
+				</AttributeSchema>
+				<AttributeSchema name="iplanet-am-auth-twiliotts-password-length"
+					type="single_choice" syntax="string" i18nKey="a508" resourceName="otpLength">
+					<ChoiceValues>
+						<ChoiceValue i18nKey="4digits">4</ChoiceValue>
+						<ChoiceValue i18nKey="6digits">6</ChoiceValue>
+						<ChoiceValue i18nKey="8digits">8</ChoiceValue>
+					</ChoiceValues>
+					<DefaultValues>
+						<Value>4</Value>
+					</DefaultValues>
+				</AttributeSchema>
+				<AttributeSchema name="openamTelephoneAttribute"
+					type="single" syntax="string" i18nKey="a510"
+					resourceName="userProfileTelephoneAttribute">
+					<DefaultValues>
+						<Value>telephoneNumber</Value>
+					</DefaultValues>
+				</AttributeSchema>
+				<AttributeSchema name="iplanet-am-auth-twiliotts-auto-clicking"
+					cosQualifier="default" type="single" syntax="boolean" i18nKey="a520"
+					resourceName="autoSendOTP">
+					<BooleanValues>
+						<BooleanTrueValue i18nKey="i18nTrue">true</BooleanTrueValue>
+						<BooleanFalseValue i18nKey="i18nFalse">false</BooleanFalseValue>
+					</BooleanValues>
+					<DefaultValues>
+						<Value>false</Value>
+					</DefaultValues>
+				</AttributeSchema>
+
+				<!-- For Auth Modules, the parent Schema element specifies the REST SMS 
+					resourceName, and the nested SubSchema must have resourceName="USE-PARENT" -->
+				<SubSchema name="serverconfig" inheritance="multiple"
+					resourceName="USE-PARENT">
+					<AttributeSchema name="iplanet-am-auth-twiliotts-account-sid"
+						type="single" syntax="string" i18nKey="a530" resourceName="accountSid">
+						<DefaultValues>
+							<Value></Value>
+						</DefaultValues>
+					</AttributeSchema>
+					<AttributeSchema name="iplanet-am-auth-twiliotts-tokenid"
+						type="single" syntax="string" i18nKey="a531" resourceName="tokenId">
+						<DefaultValues>
+							<Value></Value>
+						</DefaultValues>
+					</AttributeSchema>
+					<AttributeSchema name="iplanet-am-auth-twiliotts-url"
+						type="single" syntax="string" i18nKey="a532" resourceName="controlurl">
+						<DefaultValues>
+							<Value></Value>
+						</DefaultValues>
+					</AttributeSchema>
+					<AttributeSchema name="iplanet-am-auth-twiliotts-from"
+						type="single" syntax="string" i18nKey="a533" resourceName="fromPhone">
+						<DefaultValues>
+							<Value></Value>
+						</DefaultValues>
+					</AttributeSchema>
+					<AttributeSchema name="iplanet-am-auth-twiliotts-auth-level"
+						resourceName="authLevel" type="single" syntax="number_range"
+						rangeStart="0" rangeEnd="2147483647" i18nKey="a500">
+						<DefaultValues>
+							<Value>1</Value>
+						</DefaultValues>
+					</AttributeSchema>
+					<AttributeSchema name="iplanet-am-auth-twiliotts-validity-duration"
+						type="single" syntax="number_range" rangeStart="1" rangeEnd="30"
+						i18nKey="a507" resourceName="otpValidityDuration">
+						<DefaultValues>
+							<Value>5</Value>
+						</DefaultValues>
+					</AttributeSchema>
+					<AttributeSchema name="iplanet-am-auth-twiliotts-password-length"
+						type="single_choice" syntax="string" i18nKey="a508" resourceName="otpLength">
+						<ChoiceValues>
+							<ChoiceValue i18nKey="4digits">4</ChoiceValue>
+							<ChoiceValue i18nKey="6digits">6</ChoiceValue>
+							<ChoiceValue i18nKey="8digits">8</ChoiceValue>
+						</ChoiceValues>
+						<DefaultValues>
+							<Value>4</Value>
+						</DefaultValues>
+					</AttributeSchema>
+					<AttributeSchema name="openamTelephoneAttribute"
+						type="single" syntax="string" i18nKey="a510"
+						resourceName="userProfileTelephoneAttribute">
+						<DefaultValues>
+							<Value>telephoneNumber</Value>
+						</DefaultValues>
+					</AttributeSchema>
+					<AttributeSchema name="iplanet-am-auth-twiliotts-auto-clicking"
+						cosQualifier="default" type="single" syntax="boolean" i18nKey="a520"
+						resourceName="autoSendOTP">
+						<BooleanValues>
+							<BooleanTrueValue i18nKey="i18nTrue">true</BooleanTrueValue>
+							<BooleanFalseValue i18nKey="i18nFalse">false</BooleanFalseValue>
+						</BooleanValues>
+						<DefaultValues>
+							<Value>false</Value>
+						</DefaultValues>
+					</AttributeSchema>
+
+
+				</SubSchema>
+			</Organization>
+		</Schema>
+	</Service>
+</ServicesConfiguration>
