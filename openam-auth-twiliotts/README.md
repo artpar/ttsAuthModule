@@ -1,4 +1,4 @@
-TwilioTTS ( Text To Speech ) Authentication Module
+TwilioTTS ( Text To Speech ) Authentication Module for ForgeRock OpenAM
 -------------------------------------------------------------------------
 
 This is an experimental module to use the Twilio service to call users and read out their OTP's. This module has been based largely on the existing HOTP module.
