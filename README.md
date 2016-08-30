@@ -5,7 +5,7 @@ This is an experimental module to use the Twilio service to call users and read 
 
 https://www.twilio.com/
 
-Video Demo: https://drive.google.com/open?id=0B4Magd7yKsd_OS05a2VScEtKX1U
+You can see a video demo on my blog: http://identity-implementation.blogspot.co.uk/2016/08/openam-text-to-speech-authentication.html
 
 How to build and install:
 -------------------------
